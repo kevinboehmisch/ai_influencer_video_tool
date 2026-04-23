@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import SignOutButton from '@/components/ui/SignOutButton'
+import Link from 'next/link'
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -16,7 +17,6 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-[#080808] text-white">
 
-      {/* top nav */}
       <nav className="border-b border-white/5 px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg bg-violet-500 flex items-center justify-center">
@@ -34,7 +34,6 @@ export default async function DashboardPage() {
 
       <div className="max-w-6xl mx-auto px-8 py-10 space-y-10">
 
-        {/* hero greeting */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600/20 via-violet-900/10 to-transparent border border-violet-500/20 p-8">
           <div className="absolute -top-20 -right-20 w-64 h-64 bg-violet-600/20 rounded-full blur-3xl pointer-events-none" />
           <div className="relative">
@@ -51,7 +50,6 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        {/* stats row */}
         <div className="grid grid-cols-3 gap-4">
           {[
             { label: 'AI Influencers', value: '0', sub: 'characters created' },
@@ -66,13 +64,11 @@ export default async function DashboardPage() {
           ))}
         </div>
 
-        {/* main actions */}
         <div>
           <p className="text-zinc-500 text-xs uppercase tracking-widest mb-4">Quick Actions</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-            {/* create influencer */}
-            <button className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-violet-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-violet-950/20">
+            <Link href="/dashboard/influencers" className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-violet-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-violet-950/20">
               <div className="absolute inset-0 bg-gradient-to-br from-violet-600/0 to-violet-600/0 group-hover:from-violet-600/5 group-hover:to-transparent transition-all duration-300" />
               <div className="relative">
                 <div className="w-10 h-10 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center mb-4 group-hover:bg-violet-500/30 transition">
@@ -90,10 +86,9 @@ export default async function DashboardPage() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
 
-            {/* photo templates */}
-            <button className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-pink-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-pink-950/20">
+            <Link href="/dashboard/photos" className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-pink-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-pink-950/20">
               <div className="absolute inset-0 bg-gradient-to-br from-pink-600/0 to-pink-600/0 group-hover:from-pink-600/5 group-hover:to-transparent transition-all duration-300" />
               <div className="relative">
                 <div className="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-500/30 flex items-center justify-center mb-4 group-hover:bg-pink-500/30 transition">
@@ -112,10 +107,9 @@ export default async function DashboardPage() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
 
-            {/* video clone */}
-            <button className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-cyan-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-cyan-950/20">
+            <Link href="/dashboard/videos" className="group relative overflow-hidden bg-zinc-900/50 border border-white/5 hover:border-cyan-500/50 rounded-2xl p-6 text-left transition-all duration-300 hover:bg-cyan-950/20">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/0 to-cyan-600/0 group-hover:from-cyan-600/5 group-hover:to-transparent transition-all duration-300" />
               <div className="relative">
                 <div className="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mb-4 group-hover:bg-cyan-500/30 transition">
@@ -133,12 +127,11 @@ export default async function DashboardPage() {
                   </svg>
                 </div>
               </div>
-            </button>
+            </Link>
 
           </div>
         </div>
 
-        {/* recent jobs placeholder */}
         <div>
           <p className="text-zinc-500 text-xs uppercase tracking-widest mb-4">Recent Jobs</p>
           <div className="bg-zinc-900/30 border border-white/5 rounded-2xl p-12 flex flex-col items-center justify-center text-center">
